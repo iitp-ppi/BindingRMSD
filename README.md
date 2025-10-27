@@ -1,4 +1,4 @@
-# 🧬 BindingRMSD
+# RMSD-Pred
 
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-red.svg)
@@ -7,25 +7,25 @@
 
 > **Advanced protein-ligand binding pose RMSD prediction using Graph Neural Networks**
 
-BindingRMSD is a tool for predicting the Root Mean Square Deviation (RMSD) of protein-ligand binding poses using Graph Neural Networks (GNNs). The model provides both RMSD values and confidence scores for binding pose evaluation.
+RMSD-Pred is a tool for predicting the Root Mean Square Deviation (RMSD) of protein-ligand binding poses using Graph Neural Networks (GNNs). The model provides both RMSD values and confidence scores for binding pose evaluation.
 
-## ✨ Features
+## Features
 
-- 🎯 **Accurate RMSD Prediction**: State-of-the-art GNN models for precise RMSD estimation
-- 📊 **Confidence Scoring**: Probability estimation for pose correctness assessment  
-- 🔧 **Multiple Input Formats**: Support for SDF, MOL2, DLG, PDBQT, and batch processing
-- ⚡ **GPU Acceleration**: CUDA support for high-performance inference
-- 📦 **Easy Installation**: Simple pip-based installation with conda environment
-- 🔄 **Batch Processing**: Efficient processing of multiple ligand poses
+- **Accurate RMSD Prediction**: State-of-the-art GNN models for precise RMSD estimation
+- **Confidence Scoring**: Probability estimation for pose correctness assessment
+- **Multiple Input Formats**: Support for SDF, MOL2, DLG, PDBQT, and batch processing
+- **GPU Acceleration**: CUDA support for high-performance inference
+- **Easy Installation**: Simple pip-based installation with conda environment
+- **Batch Processing**: Efficient processing of multiple ligand poses
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/eightmm/BindingRMSD.git
-cd BindingRMSD
+git clone https://github.com/eightmm/RMSD-Pred.git
+cd RMSD-Pred
 
 # Create and activate conda environment
 conda create -n bindingrmsd python=3.11
@@ -77,19 +77,19 @@ inference(
 )
 ```
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Input Parameters
 
 | Parameter | Description | Default | Required |
 |-----------|-------------|---------|----------|
-| `-r, --protein_pdb` | Receptor protein PDB file | - | ✅ |
-| `-l, --ligand_file` | Ligand file or file list | - | ✅ |
-| `-o, --output` | Output results file | `result.csv` | ❌ |
-| `--model_path` | Directory with model weights | `./save` | ❌ |
-| `--batch_size` | Batch size for inference | `128` | ❌ |
-| `--device` | Compute device (`cuda`/`cpu`) | `cuda` | ❌ |
-| `--ncpu` | Number of CPU workers | `4` | ❌ |
+| `-r, --protein_pdb` | Receptor protein PDB file | - | Yes |
+| `-l, --ligand_file` | Ligand file or file list | - | Yes |
+| `-o, --output` | Output results file | `result.csv` | No |
+| `--model_path` | Directory with model weights | `./save` | No |
+| `--batch_size` | Batch size for inference | `128` | No |
+| `--device` | Compute device (`cuda`/`cpu`) | `cuda` | No |
+| `--ncpu` | Number of CPU workers | `4` | No |
 
 ### Supported Input Formats
 
@@ -110,34 +110,34 @@ The results are saved as a tab-separated file with the following columns:
 - **Is_Above_2A**: Confidence score (0-1, probability of being a good pose, 0 is better)
 - **ADG_Score**: AutoDock score (when available, NaN otherwise, 0 is better)
 
-## 🏗️ Architecture
+## Architecture
 
 ### Model Components
 
-- **🧠 Gated Graph Neural Network**: Advanced GNN architecture for molecular representation
-- **🔗 Protein-Ligand Interaction**: Comprehensive modeling of binding interactions
-- **🎯 Dual Prediction**: Simultaneous RMSD and confidence prediction
-- **⚡ Efficient Processing**: Optimized for batch inference
+- **Gated Graph Neural Network**: Advanced GNN architecture for molecular representation
+- **Protein-Ligand Interaction**: Comprehensive modeling of binding interactions
+- **Dual Prediction**: Simultaneous RMSD and confidence prediction
+- **Efficient Processing**: Optimized for batch inference
 
 ### File Structure
 
 ```
-BindingRMSD/
-├── 📁 bindingrmsd/          # Main package
-│   ├── 📁 data/             # Data processing modules
+RMSD-Pred/
+├── bindingrmsd/          # Main package
+│   ├── data/             # Data processing modules
 │   │   ├── data.py          # Dataset classes
 │   │   ├── ligand_atom_feature.py   # Ligand featurization
 │   │   ├── protein_atom_feature.py  # Protein featurization
 │   │   └── utils.py         # Utility functions
-│   ├── 📁 model/            # Model architecture
+│   ├── model/            # Model architecture
 │   │   ├── GatedGCNLSPE.py  # GNN implementation
 │   │   └── model.py         # Prediction models
 │   └── inference.py         # Inference script
-├── 📁 example/              # Example data
+├── example/              # Example data
 │   ├── prot.pdb            # Example protein
 │   ├── ligs.sdf            # Example ligands
 │   └── run.sh              # Example script
-├── 📁 save/                 # Pre-trained models
+├── save/                 # Pre-trained models
 │   ├── reg.pth             # RMSD model weights
 │   └── bce.pth             # Confidence model weights
 ├── setup.py                # Package configuration
@@ -145,7 +145,7 @@ BindingRMSD/
 └── README.md               # This file
 ```
 
-## 🔬 Example
+## Example
 
 ### Complete Workflow
 
@@ -175,7 +175,7 @@ ligand_3    0.87    0.95        -9.1
 ...
 ```
 
-## 🧪 Model Details
+## Model Details
 
 ### Training Data
 - Curated protein-ligand complexes with experimental binding poses
@@ -187,7 +187,7 @@ ligand_3    0.87    0.95        -9.1
 - **Encoder**: Gated Graph Convolution with Local Structure-aware Positional Encoding
 - **Output**: Regression (RMSD) + Binary Classification (Quality)
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -197,27 +197,27 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 Citation
+## Citation
 
-If you use BindingRMSD in your research, please cite:
+If you use RMSD-Pred in your research, please cite:
 
 ```bibtex
-@article{bindingrmsd2024,
-  title={BindingRMSD: Accurate Prediction of Protein-Ligand Binding Pose RMSD using Graph Neural Networks},
+@article{rmsdpred2024,
+  title={RMSD-Pred: Accurate Prediction of Protein-Ligand Binding Pose RMSD using Graph Neural Networks},
   author={Jaemin Sim},
   year={2024}
 }
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
+## Authors
 
 - **Jaemin Sim** - *Lead Developer* - [eightmm](https://github.com/eightmm)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - RDKit community for molecular informatics tools
 - DGL team for graph neural network framework
@@ -227,9 +227,9 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 <div align="center">
 
-**[⭐ Star this repository](https://github.com/eightmm/BindingRMSD)** if you find it useful!
+**[Star this repository](https://github.com/eightmm/RMSD-Pred)** if you find it useful!
 
-Made with ❤️ for the computational chemistry community
+Made for the computational chemistry community
 
 </div>
 
