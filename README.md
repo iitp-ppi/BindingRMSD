@@ -1,3 +1,5 @@
+<div align="center">
+
 # RMSD-Pred
 
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
@@ -11,12 +13,9 @@ RMSD-Pred is a tool for predicting the Root Mean Square Deviation (RMSD) of prot
 
 ## Features
 
-- **Accurate RMSD Prediction**: State-of-the-art GNN models for precise RMSD estimation
+- **Accurate RMSD Prediction**: GNN models for precise RMSD estimation
 - **Confidence Scoring**: Probability estimation for pose correctness assessment
 - **Multiple Input Formats**: Support for SDF, MOL2, DLG, PDBQT, and batch processing
-- **GPU Acceleration**: CUDA support for high-performance inference
-- **Easy Installation**: Simple pip-based installation with conda environment
-- **Batch Processing**: Efficient processing of multiple ligand poses
 
 ## Quick Start
 
@@ -175,28 +174,6 @@ ligand_3    0.87    0.95        -9.1
 ...
 ```
 
-## Model Details
-
-### Training Data
-- Curated protein-ligand complexes with experimental binding poses
-- Diverse chemical space coverage
-- Quality-controlled RMSD annotations
-
-### Model Architecture
-- **Input**: Protein and ligand molecular graphs
-- **Encoder**: Gated Graph Convolution with Local Structure-aware Positional Encoding
-- **Output**: Regression (RMSD) + Binary Classification (Quality)
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)  
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## Citation
 
 If you use RMSD-Pred in your research, please cite:
@@ -216,20 +193,3 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 ## Authors
 
 - **Jaemin Sim** - *Lead Developer* - [eightmm](https://github.com/eightmm)
-
-## Acknowledgments
-
-- RDKit community for molecular informatics tools
-- DGL team for graph neural network framework
-- PyTorch team for deep learning infrastructure
-
----
-
-<div align="center">
-
-**[Star this repository](https://github.com/eightmm/RMSD-Pred)** if you find it useful!
-
-Made for the computational chemistry community
-
-</div>
-
