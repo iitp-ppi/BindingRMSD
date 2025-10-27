@@ -2,6 +2,8 @@
 
 # RMSD-Pred
 
+</div>
+
 ![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.4.0-red.svg)
 ![DGL](https://img.shields.io/badge/DGL-2.4.0-green.svg)
